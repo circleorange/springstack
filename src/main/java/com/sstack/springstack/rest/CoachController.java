@@ -1,27 +1,27 @@
 package com.sstack.springstack.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sstack.springstack.common.Coach;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @RestController
 public class CoachController {
 
-    private Coach myCoach;
+    private Coach coach;
 
     @Autowired
-    public CoachController (Coach coach) {
-        myCoach = coach;
+    public CoachController (@Qualifier("trackCoach") Coach coach) {
+        System.out.println("Creating instance of :" + getClass().getSimpleName());
+        this.coach = coach;
     }
 
     @GetMapping("/getworkout")
     public String getDailyWorkout() {
-        return myCoach.getDailyWorkout();
+        return coach.getDailyWorkout();
     }
     
 }

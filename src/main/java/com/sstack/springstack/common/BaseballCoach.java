@@ -5,15 +5,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Lazy
-public class CricketCoach 
+public class BaseballCoach 
     implements Coach
 {
-    public CricketCoach () {
+    public BaseballCoach () {
         System.out.println("Creating instance of :" + getClass().getSimpleName());
     }
-
+    
     @Override
     public String getDailyWorkout() {
-        return "Practise fast bowling for 15 minutes";
+        return "Baseball coach says spend 30 minutes in batting practise";
     }
 }
